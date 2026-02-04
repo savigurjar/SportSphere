@@ -54,7 +54,13 @@ const userSchema = new Schema({
 
     profileImage: {
         type: String // image URL
-    }
+    },
+     resetPasswordToken: {
+        type: String
+    },
+    resetPasswordExpire: {
+        type: Date
+    },
 
 }, { timestamps: true })
 

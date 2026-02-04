@@ -6,7 +6,8 @@ const main = require("./config/db")
 const redisClient = require("./config/redis");
 const authRouter = require("./routes/userRoute")
 
-app.use(express.json());
+app.use(express.json());           // for JSON
+app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
 
 app.use("/user", authRouter);
