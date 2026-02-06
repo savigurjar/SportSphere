@@ -7,19 +7,17 @@ const redisClient = require("./config/redis");
 const authRouter = require("./routes/userRoute")
 const cors = require("cors");
 
-app.use(express.json());           // for JSON
-app.use(express.urlencoded({ extended: true })); 
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-
 
 app.use("/user", authRouter);
 
-app.use(cors({
-    
-    origin: "http://localhost:5173", // frontend URL
-    credentials: true,
-}));
 
 const initializeConnection = async () => {
     try {
