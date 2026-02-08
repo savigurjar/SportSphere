@@ -9,7 +9,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../features/authSlice";
-
+import { ModeToggle } from "./ModeToggle";
 
 // Color theme matching the login page
 const COLORS = {
@@ -88,23 +88,23 @@ const HolographicDropdown = ({ children, className = "" }) => {
 const HeaderParticles = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-      {Array.from({ length: 50 }).map((_, i) => (
+      {Array.from({ length: 30 }).map((_, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full"
           style={{
-            width: `${Math.random() * 3 + 1}px`,
-            height: `${Math.random() * 3 + 1}px`,
+            width: `${Math.random() * 2 + 1}px`,
+            height: `${Math.random() * 2 + 1}px`,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            backgroundColor: `rgba(220, 231, 198, ${Math.random() * 0.3 + 0.1})`,
+            backgroundColor: `rgba(220, 231, 198, ${Math.random() * 0.2 + 0.1})`,
           }}
           animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.8, 0.2],
+            y: [0, -10, 0],
+            opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
-            duration: 3 + Math.random() * 4,
+            duration: 2 + Math.random() * 2,
             repeat: Infinity,
             delay: Math.random() * 2,
           }}
@@ -248,20 +248,21 @@ function Header() {
         {/* Main Container */}
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center  group">
-           
-             
-                {/* <Trophy className="w-5 h-5 text-[#DCE7C6]" /> */}
-                <img src="/logoo.png" alt="HSA Logo" className="w-19 h-19 " />
-              
-             
-            
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="relative">
+              <img 
+                src="/logoo.png" 
+                alt="HSA Logo" 
+                className="w-12 h-12 object-contain"
+              />
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full animate-pulse" />
+            </div>
             
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-blue-300 bg-clip-text text-transparent">
                 HSA
               </span>
-              <span className="text-xs text-gray-700 hidden sm:block">
+              <span className="text-xs text-gray-400 hidden sm:block">
                 Himalayan Sports Academy
               </span>
             </div>
@@ -287,7 +288,7 @@ function Header() {
               >
                 <Link
                   to={item.path}
-                  className="relative flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-900 hover:text-[#DCE7C6] rounded-lg transition-all duration-300 group/nav"
+                  className="relative flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-300 hover:text-[#DCE7C6] rounded-lg transition-all duration-300 group/nav"
                 >
                   <item.icon className="w-4 h-4" />
                   <span>{item.label}</span>
@@ -302,6 +303,11 @@ function Header() {
 
           {/* Right Side - Controls */}
           <div className="flex items-center gap-3">
+            {/* Mode Toggle - Desktop */}
+            <div className="hidden md:block">
+              <ModeToggle />
+            </div>
+            
             {/* Notification Bell */}
             <NotificationBell count={3} />
             
@@ -456,6 +462,11 @@ function Header() {
             >
               <HolographicDropdown className="m-4">
                 <div className="p-4 space-y-4">
+                  {/* Mode Toggle for Mobile */}
+                  <div className="flex justify-center py-2">
+                    <ModeToggle />
+                  </div>
+
                   {/* Navigation Links */}
                   <div className="space-y-1">
                     {navItems.map((item) => (

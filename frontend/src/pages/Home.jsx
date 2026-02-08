@@ -1197,12 +1197,15 @@
 // Remove the NavigationBar component from Home.jsx and add:
 import Header from "../components/Header";
 import AppLayout from "../components/AppLayout";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
     <>
-      <AppLayout/>
+      <AppLayout>
+      <Hero/>
       {/* Rest of your Home page content */}
+      </AppLayout>
     </>
   );
 };
