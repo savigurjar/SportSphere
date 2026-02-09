@@ -1,9 +1,9 @@
 // src/components/Footer.jsx (Compact but Feature-rich)
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { 
-  Trophy, MapPin, Phone, Mail, Instagram, 
-  Facebook, Twitter, Youtube, ChevronRight, 
+import {
+  Trophy, MapPin, Phone, Mail, Instagram,
+  Facebook, Twitter, Youtube, ChevronRight,
   Heart, Shield, Users, Target
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -41,23 +41,31 @@ const Footer = () => {
       {/* Main Content - Compact */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          
+
           {/* Column 1: Brand */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg flex items-center justify-center">
-                <Trophy className="w-5 h-5 text-[#DCE7C6]" />
+              {/* <div className="w-10 h-10 bg-gradient-to-br from-blue-700 to-blue-900 rounded-lg flex items-center justify-center"> */}
+              {/* <Trophy className="w-5 h-5 text-[#DCE7C6]" /> */}
+              {/* </div> */}
+              <div className="relative">
+                <img
+                  src="/logoo.png"
+                  alt="HSA Logo"
+                  className="w-12 h-12 object-contain"
+                />
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full animate-pulse" />
               </div>
               <div>
                 <h2 className="text-lg font-bold text-white">HSA</h2>
                 <p className="text-xs text-gray-400">Himalayan Sports Academy</p>
               </div>
             </div>
-            
+
             <p className="text-sm text-gray-400">
               Training champions in the heart of the Himalayas.
             </p>
-            
+
             {/* Stats */}
             <div className="flex gap-4 pt-2">
               <div className="text-center">
@@ -156,7 +164,7 @@ const Footer = () => {
           <div className="text-xs text-gray-500">
             © {currentYear} Himalayan Sports Academy. All rights reserved.
           </div>
-          
+
           <div className="flex items-center gap-4 text-xs text-gray-400">
             <Link to="/privacy" className="hover:text-[#DCE7C6] transition-colors">
               Privacy Policy
@@ -171,7 +179,7 @@ const Footer = () => {
               <span>For Athletes</span>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-1 text-xs text-gray-500">
             <Shield className="w-3 h-3 text-[#DCE7C6]" />
             <span>Accredited</span>

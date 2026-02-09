@@ -9,7 +9,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../features/authSlice";
-import { ModeToggle } from "./ModeToggle";
 
 // Color theme matching the login page
 const COLORS = {
@@ -235,7 +234,7 @@ function Header() {
         transition={{ duration: 0.5, type: "spring" }}
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled 
-            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10' 
+            ? 'bg-gradient-to-b from-black to-gray-900 backdrop-blur-xl border-b border-white/10' 
             : 'bg-gradient-to-b from-black/95 to-transparent backdrop-blur-lg'
         }`}
       >
@@ -303,11 +302,6 @@ function Header() {
 
           {/* Right Side - Controls */}
           <div className="flex items-center gap-3">
-            {/* Mode Toggle - Desktop */}
-            <div className="hidden md:block">
-              <ModeToggle />
-            </div>
-            
             {/* Notification Bell */}
             <NotificationBell count={3} />
             
@@ -462,11 +456,6 @@ function Header() {
             >
               <HolographicDropdown className="m-4">
                 <div className="p-4 space-y-4">
-                  {/* Mode Toggle for Mobile */}
-                  <div className="flex justify-center py-2">
-                    <ModeToggle />
-                  </div>
-
                   {/* Navigation Links */}
                   <div className="space-y-1">
                     {navItems.map((item) => (

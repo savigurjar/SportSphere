@@ -1,307 +1,387 @@
 // src/components/Hero.jsx
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Trophy, Target, Users, Shield, Award, Heart, Activity } from "lucide-react";
+import { 
+  Trophy, Target, Users, Shield, Award, Heart, Activity, 
+  Star, Clock, MapPin, ChevronRight, Sparkles, TrendingUp, 
+  Zap, CheckCircle, Medal, Globe, Mountain, ArrowRight
+} from "lucide-react";
 
 const Hero = () => {
-  return (
-    <motion.div
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ delay: 0.2 }}
-      className="space-y-8"
-    >
-      {/* Academy Badge with Enhanced Design */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            {/* Animated Badge Container */}
-            <motion.div 
-              className="w-14 h-14 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-900/50"
-              animate={{
-                boxShadow: [
-                  "0 0 20px rgba(13, 71, 161, 0.5)",
-                  "0 0 40px rgba(21, 101, 192, 0.8)",
-                  "0 0 20px rgba(13, 71, 161, 0.5)"
-                ]
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <Trophy className="w-7 h-7 text-[#DCE7C6]" />
-            </motion.div>
-            
-            {/* Animated Orbital Dots */}
-            <motion.div
-              className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.7, 1, 0.7]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            
-            {/* Floating Particles around badge */}
-            {[0, 90, 180, 270].map((rotation) => (
-              <motion.div
-                key={rotation}
-                className="absolute w-1 h-1 bg-[#DCE7C6]/30 rounded-full"
-                style={{
-                  left: '50%',
-                  top: '50%',
-                  transform: `rotate(${rotation}deg) translateX(25px)`,
-                }}
-                animate={{
-                  scale: [0, 1, 0],
-                  opacity: [0, 0.8, 0]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: rotation * 0.01,
-                  ease: "easeInOut"
-                }}
-              />
-            ))}
-          </div>
-          
-          {/* Academy Title with Enhanced Typography */}
-          <div className="relative">
-            <motion.h1 
-              className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-blue-300 bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              Himalayan Sports Academy
-            </motion.h1>
-            
-            {/* Subtitle */}
-            <motion.p 
-              className="text-sm text-gray-400 mt-1 flex items-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-              Est. 2010 • Excellence in Athletics
-            </motion.p>
-          </div>
-        </div>
-        
-        {/* Main Hero Heading with Animated Gradient */}
-        <div className="space-y-3">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <h2 className="text-6xl font-bold text-white leading-tight">
-              <span className="relative inline-block">
-                Elevate Your Game
-                {/* Underline Animation */}
-                <motion.div
-                  className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-600 to-[#DCE7C6]"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 1, duration: 1 }}
-                />
-              </span>
-            </h2>
-            
-            <h2 className="text-5xl font-bold text-white leading-tight">
-              At <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-blue-300 animate-gradient">Peak Performance</span>
-            </h2>
-          </motion.div>
-          
-          {/* Animated Tagline */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="flex items-center gap-4"
-          >
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((i) => (
-                  <div 
-                    key={i}
-                    className="w-6 h-6 rounded-full border-2 border-navy-dark bg-gradient-to-br from-blue-700 to-blue-900"
-                  />
-                ))}
-              </div>
-              <span className="text-gray-300">Join 500+ Champions</span>
-            </div>
-            
-            <div className="w-px h-6 bg-white/20" />
-            
-            <div className="flex items-center gap-2">
-              <Target className="w-5 h-5 text-[#DCE7C6]" />
-              <span className="text-gray-300">Personalized Training</span>
-            </div>
-          </motion.div>
-        </div>
-        
-        {/* Enhanced Description */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="space-y-4"
-        >
-          <p className="text-xl text-gray-300 leading-relaxed">
-            Where <span className="text-[#DCE7C6] font-semibold">Himalayan discipline</span> meets 
-            <span className="text-blue-400 font-semibold"> modern sports science</span>. 
-            Transform your potential into podium finishes with our world-class coaching.
-          </p>
-          
-          {/* Achievement Badges */}
-          <div className="flex flex-wrap gap-3">
-            {[
-              { label: "ISO Certified", color: "from-blue-600 to-blue-800" },
-              { label: "Olympic Partners", color: "from-yellow-600 to-yellow-800" },
-              { label: "24/7 Facility", color: "from-green-600 to-green-800" },
-            ].map((badge, index) => (
-              <motion.div
-                key={index}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.9 + index * 0.1, type: "spring" }}
-                className={`px-4 py-1.5 rounded-full bg-gradient-to-r ${badge.color} text-white text-sm font-medium flex items-center gap-2`}
-              >
-                <Award className="w-3 h-3" />
-                {badge.label}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-      {/* Stats with Enhanced Animation */}
-      <div className="grid grid-cols-3 gap-4">
-        {[
-          { 
-            value: "500+", 
-            label: "Active Athletes", 
-            icon: Users,
-            suffix: "Champions",
-            color: "from-blue-600 to-blue-800"
-          },
-          { 
-            value: "50+", 
-            label: "Expert Coaches", 
-            icon: Trophy,
-            suffix: "Pro Staff",
-            color: "from-purple-600 to-purple-800"
-          },
-          { 
-            value: "24/7", 
-            label: "Support", 
-            icon: Shield,
-            suffix: "Available",
-            color: "from-emerald-600 to-emerald-800"
-          },
-        ].map((stat, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ 
-              delay: 1 + index * 0.1,
-              type: "spring",
-              stiffness: 100
+  // Statistics data
+  const stats = [
+    { 
+      value: "150+", 
+      label: "International Medals", 
+      icon: Medal,
+      gradient: "from-yellow-600/20 to-yellow-400/10",
+      color: "text-yellow-400"
+    },
+    { 
+      value: "25", 
+      label: "Sports Disciplines", 
+      icon: Zap,
+      gradient: "from-blue-600/20 to-cyan-400/10",
+      color: "text-cyan-400"
+    },
+    { 
+      value: "42", 
+      label: "Live Training", 
+      icon: Activity,
+      gradient: "from-green-600/20 to-emerald-400/10",
+      color: "text-emerald-400"
+    },
+    { 
+      value: "4.9★", 
+      label: "Student Rating", 
+      icon: Star,
+      gradient: "from-purple-600/20 to-purple-400/10",
+      color: "text-purple-400"
+    },
+  ];
+
+  const features = [
+    { icon: Target, text: "State-of-the-art training facilities" },
+    { icon: Users, text: "Professional coaching staff" },
+    { icon: Activity, text: "Personalized training programs" },
+    { icon: Award, text: "Sports science & nutrition" },
+    { icon: Trophy, text: "Competition opportunities" },
+    { icon: Heart, text: "Health & wellness programs" },
+  ];
+
+  return (
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-blue-950 px-4 py-12">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 z-0">
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-900/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-900/15 rounded-full blur-3xl" />
+        
+        {/* Grid Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e40af10_1px,transparent_1px),linear-gradient(to_bottom,#1e40af10_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        
+        {/* Floating Particles */}
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${10 + Math.random() * 10}s`,
             }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="relative group"
-          >
-            {/* Background Glow Effect */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-xl blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-            
-            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-xl p-5 border border-white/10 hover:border-white/20 transition-all duration-300">
-              <div className="flex items-center justify-between mb-3">
-                <stat.icon className={`w-6 h-6 text-gradient bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} />
-                <div className="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-400">
-                  {stat.suffix}
-                </div>
-              </div>
-              
-              <div className="space-y-1">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-3xl font-bold text-white">{stat.value}</span>
-                  <motion.span 
-                    className="text-xs text-gray-400"
-                    animate={{ opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    ↗
-                  </motion.span>
-                </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </div>
-              
-              {/* Progress Indicator */}
-              <div className="mt-3">
-                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                  <motion.div
-                    className={`h-full bg-gradient-to-r ${stat.color}`}
-                    initial={{ width: "0%" }}
-                    animate={{ width: `${70 + index * 15}%` }}
-                    transition={{ delay: 1.5 + index * 0.2, duration: 1.5, ease: "easeOut" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          />
         ))}
       </div>
 
-      {/* Feature List with Enhanced Design */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.3 }}
-        className="space-y-4"
-      >
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 bg-[#DCE7C6] rounded-full animate-pulse" />
-          <h3 className="text-lg font-semibold text-white">Why Choose HSA?</h3>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-3">
-          {[
-            { icon: Target, text: "State-of-the-art training facilities", highlight: "World-class" },
-            { icon: Users, text: "Professional coaching staff", highlight: "Olympic-level" },
-            { icon: Activity, text: "Personalized training programs", highlight: "Tailored" },
-            { icon: Award, text: "Sports science & nutrition", highlight: "Scientific" },
-            { icon: Trophy, text: "Competition opportunities", highlight: "Global" },
-            { icon: Heart, text: "Health & wellness programs", highlight: "Holistic" },
-          ].map((feature, index) => (
+      {/* Main Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        {/* Academy Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-16"
+        >
+          {/* Badge */}
+          <motion.div
+            animate={{ rotateY: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="relative mb-8"
+          >
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-800 via-blue-700 to-blue-900 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-900/50">
+              <Trophy className="w-12 h-12 text-[#DCE7C6]" />
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-3xl blur-xl opacity-20" />
+          </motion.div>
+
+          {/* Title */}
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+            <span className="bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-cyan-300 bg-clip-text text-transparent">
+              HIMALAYAN SPORTS
+            </span>
+            <br />
+            <span className="text-white">ACADEMY</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-gradient-to-r from-blue-900/30 to-blue-900/10 backdrop-blur-sm border border-blue-500/30 mb-6">
+            <Sparkles className="w-5 h-5 text-blue-400" />
+            <span className="text-lg font-semibold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              PREMIUM ELITE TRAINING
+            </span>
+          </div>
+
+          {/* Description */}
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Where <span className="text-[#DCE7C6] font-semibold">Himalayan discipline</span> meets 
+            <span className="text-blue-400 font-semibold"> modern sports science</span>. 
+            Transform your potential into championship performance with our world-class coaching.
+          </p>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+        >
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.4 + index * 0.05 }}
-              className="group flex items-start gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/5 hover:border-[#DCE7C6]/20"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3 + index * 0.1 }}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+              }}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className={`relative backdrop-blur-xl rounded-2xl p-6 border transition-all duration-300 ${
+                hoveredCard === index 
+                  ? "border-blue-500/50 bg-gradient-to-br from-white/10 to-white/5" 
+                  : "border-white/10 bg-white/5"
+              }`}
             >
-              <div className="p-2 rounded-lg bg-gradient-to-br from-blue-900/30 to-blue-900/10 group-hover:from-blue-900/50 group-hover:to-blue-900/30 transition-all">
-                <feature.icon className="w-4 h-4 text-[#DCE7C6]" />
+              <div className="flex items-center justify-between mb-4">
+                <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                {hoveredCard === index && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center"
+                  >
+                    <ChevronRight className="w-4 h-4 text-blue-400" />
+                  </motion.div>
+                )}
               </div>
-              <span className="text-gray-300 text-sm">
-                <span className="text-[#DCE7C6] font-medium">{feature.highlight}</span> {feature.text.replace(feature.highlight, '')}
-              </span>
+              
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-white">{stat.value}</div>
+                <div className="text-sm text-gray-400">{stat.label}</div>
+              </div>
+              
+              {/* Progress Bar */}
+              <div className="mt-4 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                <motion.div
+                  className={`h-full bg-gradient-to-r ${stat.gradient.split(' ')[1]}`}
+                  initial={{ width: "0%" }}
+                  animate={{ width: `${60 + index * 15}%` }}
+                  transition={{ delay: 0.8 + index * 0.2, duration: 1.5 }}
+                />
+              </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Features Section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          className="space-y-8"
+        >
+          {/* Features Header */}
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-2">World-Class Facilities</h2>
+            <p className="text-gray-400">Experience training infrastructure that matches Olympic standards</p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Altitude Training */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center mb-4">
+                  <Mountain className="w-7 h-7 text-white" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-2">Altitude Training Facility</h3>
+                <p className="text-gray-400 text-sm mb-4">Train at simulated 3000m altitude for enhanced performance</p>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Oxygen Control</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Temperature Regulated</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Real-time Monitoring</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 24/7 Access */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center mb-4">
+                  <Clock className="w-7 h-7 text-white" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-2">24/7 Access & Support</h3>
+                <p className="text-gray-400 text-sm mb-4">Round-the-clock facility access with medical support</p>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Always Open Facility</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Medical Team On-site</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Emergency Response</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Global Network */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center mb-4">
+                  <Globe className="w-7 h-7 text-white" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-2">Global Network</h3>
+                <p className="text-gray-400 text-sm mb-4">Connect with international coaches and athletes</p>
+                
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">International Coaches</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Global Competitions</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-gray-300">Exchange Programs</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="text-center mt-12"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl flex items-center justify-center gap-3 mx-auto group"
+            >
+              <span>Start Your Training Journey</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+            </motion.button>
+            
+            <p className="text-gray-400 mt-4 text-sm">
+              Join 500+ athletes who transformed their potential into performance
+            </p>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Live Training Indicator */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1 }}
+        className="fixed bottom-8 left-8 z-50 hidden md:block"
+      >
+        <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10">
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <div className="w-3 h-3 bg-green-500 rounded-full animate-ping absolute" />
+              <div className="w-3 h-3 bg-green-500 rounded-full relative" />
+            </div>
+            <span className="text-sm text-gray-300">Live Training</span>
+          </div>
+          <div className="text-lg font-bold text-white">42</div>
         </div>
       </motion.div>
-    </motion.div>
+
+      {/* Weather Widget */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.2 }}
+        className="fixed bottom-8 right-8 z-50 hidden md:block"
+      >
+        <div className="px-4 py-3 rounded-xl bg-black/40 backdrop-blur-xl border border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="text-2xl">☀️</div>
+            <div>
+              <div className="text-lg font-bold text-white">23°C</div>
+              <div className="text-xs text-gray-400">Sunny • ENG 09-02-2026 12:45</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
+
+// Add CSS animations
+const styles = `
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+`;
+
+// Add styles to document
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
+}
 
 export default Hero;
