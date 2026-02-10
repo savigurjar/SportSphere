@@ -1198,12 +1198,14 @@
 import Header from "../components/Header";
 import AppLayout from "../components/AppLayout";
 import Hero from "../components/Hero";
+import ProgramsShowcase from "../components/Program";
 
 const Home = () => {
   return (
     <>
       <AppLayout>
       <Hero/>
+      <ProgramsShowcase/>
       {/* Rest of your Home page content */}
       </AppLayout>
     </>
