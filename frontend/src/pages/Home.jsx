@@ -32,7 +32,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import Hero from '../components/Hero';
 import FacilitiesShowcase from '../components/FacilitiesShowcase';
 import ImageRotator from '../components/ImageRotator';
-// AppLayout हटा दें क्योंकि App.jsx में wrap कर रहे हैं
+
 
 const Home = () => {
   return (

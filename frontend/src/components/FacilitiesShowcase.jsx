@@ -1,4 +1,3 @@
-// src/components/FacilitiesShowcase.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -262,7 +261,7 @@ const FacilitiesShowcase = () => {
     const rotateX = ((centerY - y) / centerY) * -4;
     
     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    card.style.boxShadow = `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.1)`;
+    card.style.boxShadow = `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(3, 8, 89, 0.1)`;
   };
 
   const handleCardMouseLeave = (e) => {
@@ -292,21 +291,21 @@ const FacilitiesShowcase = () => {
   return (
     <div 
       ref={containerRef}
-      className="relative bg-gradient-to-b from-black via-gray-900 to-black py-16 md:py-24 overflow-visible"
+      className="relative bg-gradient-to-b from-white to-gray-50 py-16 md:py-24 overflow-visible"
     >
       {/* Advanced Background - Simplified for better performance */}
       <div className="absolute inset-0 z-0">
         {/* Static Grid Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f608_1px,transparent_1px),linear-gradient(to_bottom,#3b82f608_1px,transparent_1px)] bg-[size:60px_60px]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#5FD4E208_1px,transparent_1px),linear-gradient(to_bottom,#5FD4E208_1px,transparent_1px)] bg-[size:60px_60px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white" />
         </div>
 
         {/* Subtle Floating Elements */}
         {[...Array(3)].map((_, i) => (
           <div
             key={i}
-            className="absolute h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent"
+            className="absolute h-px bg-gradient-to-r from-transparent via-[#5FD4E2]/20 to-transparent"
             style={{
               top: `${20 + i * 20}%`,
               left: "0%",
@@ -316,8 +315,8 @@ const FacilitiesShowcase = () => {
         ))}
 
         {/* Static Orbs */}
-        <div className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl bg-blue-500/5" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl bg-cyan-500/5" />
+        <div className="absolute top-20 left-20 w-64 h-64 rounded-full blur-3xl bg-[#5FD4E2]/10" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl bg-[#DCE7C6]/10" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-8">
@@ -330,28 +329,28 @@ const FacilitiesShowcase = () => {
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="relative">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-900/50">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#030859] to-[#5FD4E2] rounded-2xl flex items-center justify-center shadow-lg shadow-[#030859]/20">
                 <Building2 className="w-8 h-8 text-white" />
               </div>
             </div>
             <div>
-              <h2 className="text-4xl md:text-6xl font-bold text-white">
-                <span className="bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-cyan-300 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-6xl font-bold">
+                <span className="bg-gradient-to-r from-[#030859] via-[#5FD4E2] to-[#030859] bg-clip-text text-transparent">
                   World-Class
                 </span>{" "}
-                <span className="text-white">Facilities</span>
+                <span className="text-[#030859]">Facilities</span>
               </h2>
-              <p className="text-lg text-gray-400 mt-2">Experience training infrastructure that matches Olympic standards</p>
+              <p className="text-lg text-gray-600 mt-2">Experience training infrastructure that matches Olympic standards</p>
             </div>
           </div>
 
           {/* Live Environment Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
             {[
-              { label: "Temperature", value: `${temperature.toFixed(1)}°C`, icon: Thermometer, color: "from-red-600 to-orange-500" },
-              { label: "Humidity", value: `${humidity.toFixed(0)}%`, icon: Droplets, color: "from-blue-600 to-cyan-500" },
-              { label: "Air Quality", value: `${airQuality.toFixed(0)}%`, icon: Wind, color: "from-green-600 to-emerald-500" },
-              { label: "Active Users", value: activeUsers, icon: Users, color: "from-purple-600 to-pink-500" }
+              { label: "Temperature", value: `${temperature.toFixed(1)}°C`, icon: Thermometer, color: "from-[#FBB102] to-[#FBB102]/80" },
+              { label: "Humidity", value: `${humidity.toFixed(0)}%`, icon: Droplets, color: "from-[#5FD4E2] to-[#5FD4E2]/80" },
+              { label: "Air Quality", value: `${airQuality.toFixed(0)}%`, icon: Wind, color: "from-[#030859] to-[#030859]/80" },
+              { label: "Active Users", value: activeUsers, icon: Users, color: "from-[#DCE7C6] to-[#DCE7C6]/80" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -361,16 +360,16 @@ const FacilitiesShowcase = () => {
                 whileHover={{ scale: 1.05 }}
                 className="relative group"
               >
-                <div className="relative p-4 rounded-2xl backdrop-blur-sm border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02]">
+                <div className="relative p-4 rounded-2xl backdrop-blur-sm border border-gray-200 bg-white/80">
                   <div className="flex items-center justify-between mb-3">
                     <div className={`p-2 rounded-lg bg-gradient-to-br ${stat.color} bg-opacity-20`}>
-                      <stat.icon className="w-4 h-4 text-white" />
+                      <stat.icon className="w-4 h-4 text-[#030859]" />
                     </div>
-                    <span className="text-xs text-gray-400">{stat.label}</span>
+                    <span className="text-xs text-gray-600">{stat.label}</span>
                   </div>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-2xl font-bold text-[#030859]">{stat.value}</div>
                   {/* Animated Meter */}
-                  <div className="mt-2 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                  <div className="mt-2 h-1 w-full bg-gray-200 rounded-full overflow-hidden">
                     <motion.div
                       className={`h-full bg-gradient-to-r ${stat.color}`}
                       initial={{ width: "0%" }}
@@ -394,7 +393,7 @@ const FacilitiesShowcase = () => {
             className="lg:col-span-2 space-y-8"
           >
             {/* Featured Facility Card */}
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-xl">
+            <div className="relative rounded-3xl overflow-hidden border border-gray-200 bg-gradient-to-br from-white to-gray-50 shadow-xl">
               {/* Image Slider */}
               <div className="relative h-64 md:h-96">
                 <AnimatePresence mode="wait">
@@ -411,25 +410,25 @@ const FacilitiesShowcase = () => {
                 </AnimatePresence>
                 
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
                 
                 {/* Controls */}
                 <div className="absolute top-4 right-4 flex items-center gap-2">
                   <button
                     onClick={() => setIsTourPlaying(!isTourPlaying)}
-                    className="p-2 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors"
+                    className="p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors"
                   >
                     {isTourPlaying ? (
-                      <Pause className="w-4 h-4 text-white" />
+                      <Pause className="w-4 h-4 text-[#030859]" />
                     ) : (
-                      <Play className="w-4 h-4 text-white" />
+                      <Play className="w-4 h-4 text-[#030859]" />
                     )}
                   </button>
                   <button
                     onClick={() => setIsFullscreen(!isFullscreen)}
-                    className="p-2 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 transition-colors"
+                    className="p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white transition-colors"
                   >
-                    <Maximize2 className="w-4 h-4 text-white" />
+                    <Maximize2 className="w-4 h-4 text-[#030859]" />
                   </button>
                 </div>
 
@@ -438,7 +437,7 @@ const FacilitiesShowcase = () => {
                   <div className="flex items-center justify-between mb-3">
                     <div>
                       <h3 className="text-2xl font-bold text-white">{activeFacilityData.title}</h3>
-                      <p className="text-sm text-gray-400">{activeFacilityData.description}</p>
+                      <p className="text-sm text-gray-200">{activeFacilityData.description}</p>
                     </div>
                     <StatusIndicator status={activeFacilityData.status} />
                   </div>
@@ -446,8 +445,8 @@ const FacilitiesShowcase = () => {
                   {/* Live Stats */}
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                     {Object.entries(activeFacilityData.liveStats).map(([key, value], index) => (
-                      <div key={key} className="p-3 rounded-xl bg-white/5 backdrop-blur-sm">
-                        <div className="text-xs text-gray-400 mb-1">{key.replace(/([A-Z])/g, ' $1')}</div>
+                      <div key={key} className="p-3 rounded-xl bg-white/20 backdrop-blur-sm">
+                        <div className="text-xs text-gray-200 mb-1">{key.replace(/([A-Z])/g, ' $1')}</div>
                         <div className="text-lg font-bold text-white">{value}</div>
                       </div>
                     ))}
@@ -460,14 +459,14 @@ const FacilitiesShowcase = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Features */}
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-blue-400" />
+                    <h4 className="text-lg font-semibold text-[#030859] mb-3 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-[#FBB102]" />
                       Key Features
                     </h4>
                     <ul className="space-y-2">
                       {activeFacilityData.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2 text-gray-300">
-                          <CheckCircle className="w-4 h-4 text-green-400" />
+                        <li key={index} className="flex items-center gap-2 text-gray-700">
+                          <CheckCircle className="w-4 h-4 text-green-500" />
                           <span>{feature}</span>
                         </li>
                       ))}
@@ -476,15 +475,15 @@ const FacilitiesShowcase = () => {
 
                   {/* Equipment */}
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-cyan-400" />
+                    <h4 className="text-lg font-semibold text-[#030859] mb-3 flex items-center gap-2">
+                      <Cpu className="w-4 h-4 text-[#5FD4E2]" />
                       Equipment
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {activeFacilityData.equipment.map((item, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 rounded-full text-sm bg-white/5 text-gray-300 border border-white/10"
+                          className="px-3 py-1 rounded-full text-sm bg-[#DCE7C6] text-[#030859] border border-[#030859]/10"
                         >
                           {item}
                         </span>
@@ -494,29 +493,29 @@ const FacilitiesShowcase = () => {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex items-center justify-between mt-6 pt-6 border-t border-white/10">
+                <div className="flex items-center justify-between mt-6 pt-6 border-t border-gray-200">
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => setActiveFacility(prev => prev === 0 ? facilities.length - 1 : prev - 1)}
-                      className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                      className="p-2 rounded-full bg-[#030859]/10 hover:bg-[#030859]/20 transition-colors"
                     >
-                      <ChevronLeft className="w-4 h-4 text-white" />
+                      <ChevronLeft className="w-4 h-4 text-[#030859]" />
                     </button>
                     <button
                       onClick={() => setIsTourPlaying(!isTourPlaying)}
-                      className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium"
+                      className="px-4 py-2 rounded-full bg-gradient-to-r from-[#030859] to-[#5FD4E2] text-white font-medium"
                     >
                       {isTourPlaying ? "Pause Tour" : "Resume Tour"}
                     </button>
                     <button
                       onClick={() => setActiveFacility(prev => (prev + 1) % facilities.length)}
-                      className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                      className="p-2 rounded-full bg-[#030859]/10 hover:bg-[#030859]/20 transition-colors"
                     >
-                      <ChevronRight className="w-4 h-4 text-white" />
+                      <ChevronRight className="w-4 h-4 text-[#030859]" />
                     </button>
                   </div>
                   
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-gray-600">
                     {activeFacility + 1} of {facilities.length}
                   </div>
                 </div>
@@ -524,18 +523,18 @@ const FacilitiesShowcase = () => {
             </div>
 
             {/* Virtual Tour Section */}
-            <div className="p-6 rounded-3xl backdrop-blur-xl border border-white/10 bg-gradient-to-br from-blue-900/20 to-blue-900/10">
+            <div className="p-6 rounded-3xl backdrop-blur-xl border border-[#5FD4E2]/30 bg-gradient-to-br from-[#5FD4E2]/10 to-[#DCE7C6]/20">
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Virtual Facility Tour</h3>
-                  <p className="text-gray-400">Take an interactive 360° tour of our facilities</p>
+                  <h3 className="text-xl font-bold text-[#030859] mb-2">Virtual Facility Tour</h3>
+                  <p className="text-gray-600">Take an interactive 360° tour of our facilities</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="px-4 py-2 rounded-full bg-white/10 text-gray-300 hover:text-white transition-colors">
+                  <button className="px-4 py-2 rounded-full bg-white/80 text-gray-600 hover:text-[#030859] transition-colors">
                     <Eye className="w-4 h-4 inline mr-2" />
                     360° View
                   </button>
-                  <button className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
+                  <button className="px-4 py-2 rounded-full bg-gradient-to-r from-[#030859] to-[#5FD4E2] text-white">
                     <Video className="w-4 h-4 inline mr-2" />
                     Start Tour
                   </button>
@@ -545,12 +544,12 @@ const FacilitiesShowcase = () => {
               {/* Tour Progress */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">Tour Progress</span>
-                  <span className="text-white">65% Complete</span>
+                  <span className="text-gray-600">Tour Progress</span>
+                  <span className="text-[#030859]">65% Complete</span>
                 </div>
-                <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-blue-600 to-cyan-500"
+                    className="h-full bg-gradient-to-r from-[#030859] to-[#5FD4E2]"
                     initial={{ width: "0%" }}
                     animate={{ width: "65%" }}
                     transition={{ duration: 2 }}
@@ -576,7 +575,7 @@ const FacilitiesShowcase = () => {
                   placeholder="Search facilities..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-[#030859] focus:ring-1 focus:ring-[#030859]/30 transition-colors"
                 />
               </div>
 
@@ -588,13 +587,13 @@ const FacilitiesShowcase = () => {
                     onClick={() => setSelectedFilter(category.id)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                       selectedFilter === category.id
-                        ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white"
-                        : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                        ? "bg-gradient-to-r from-[#030859] to-[#5FD4E2] text-white"
+                        : "bg-white text-gray-600 hover:bg-[#DCE7C6] hover:text-[#030859] border border-gray-300"
                     }`}
                   >
                     <category.icon className="w-4 h-4" />
                     <span className="text-sm">{category.label}</span>
-                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-black/30">
+                    <span className="text-xs px-1.5 py-0.5 rounded-full bg-white/30 text-[#030859]">
                       {category.count}
                     </span>
                   </button>
@@ -620,34 +619,34 @@ const FacilitiesShowcase = () => {
                   onClick={() => setActiveFacility(facilities.findIndex(f => f.id === facility.id))}
                   className={`relative cursor-pointer rounded-2xl p-4 border transition-all duration-300 ${
                     activeFacility === facilities.findIndex(f => f.id === facility.id)
-                      ? "border-blue-500/50 bg-gradient-to-br from-blue-900/30 to-blue-900/10"
-                      : "border-white/10 bg-white/5 hover:border-blue-500/30"
+                      ? "border-[#030859] bg-gradient-to-br from-[#030859]/10 to-[#5FD4E2]/10"
+                      : "border-gray-200 bg-white hover:border-[#030859]/50 hover:bg-[#DCE7C6]/20"
                   }`}
                 >
                   {/* Background Glow */}
                   {hoveredCard === facility.id && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-2xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#030859]/5 to-[#5FD4E2]/5 rounded-2xl" />
                   )}
 
                   <div className="relative">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-gradient-to-br from-blue-600/20 to-cyan-500/20">
-                          {facility.category === "training" && <Dumbbell className="w-5 h-5 text-blue-400" />}
-                          {facility.category === "recovery" && <Heart className="w-5 h-5 text-pink-400" />}
-                          {facility.category === "science" && <Brain className="w-5 h-5 text-purple-400" />}
-                          {facility.category === "monitoring" && <Monitor className="w-5 h-5 text-cyan-400" />}
+                        <div className="p-2 rounded-lg bg-gradient-to-br from-[#030859]/20 to-[#5FD4E2]/20">
+                          {facility.category === "training" && <Dumbbell className="w-5 h-5 text-[#030859]" />}
+                          {facility.category === "recovery" && <Heart className="w-5 h-5 text-[#FBB102]" />}
+                          {facility.category === "science" && <Brain className="w-5 h-5 text-[#5FD4E2]" />}
+                          {facility.category === "monitoring" && <Monitor className="w-5 h-5 text-[#030859]" />}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-white">{facility.title}</h4>
+                          <h4 className="font-semibold text-[#030859]">{facility.title}</h4>
                           <div className="flex items-center gap-3 mt-1">
                             <div className="flex items-center gap-1">
-                              <Users className="w-3 h-3 text-gray-400" />
-                              <span className="text-xs text-gray-400">{facility.capacity}</span>
+                              <Users className="w-3 h-3 text-gray-500" />
+                              <span className="text-xs text-gray-500">{facility.capacity}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-                              <span className="text-xs text-gray-400">{facility.rating}</span>
+                              <Star className="w-3 h-3 text-[#FBB102] fill-[#FBB102]" />
+                              <span className="text-xs text-gray-500">{facility.rating}</span>
                             </div>
                           </div>
                         </div>
@@ -659,11 +658,11 @@ const FacilitiesShowcase = () => {
                     <div className="flex items-center justify-between">
                       <StatusIndicator status={facility.status} />
                       <div className="flex items-center gap-3">
-                        <div className="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-400">
+                        <div className="text-xs px-2 py-1 rounded-full bg-[#DCE7C6] text-[#030859]">
                           {facility.temperature}
                         </div>
                         {facility.category === "training" && (
-                          <div className="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-400">
+                          <div className="text-xs px-2 py-1 rounded-full bg-[#5FD4E2]/20 text-[#030859]">
                             O₂: {facility.oxygenLevel}
                           </div>
                         )}
@@ -675,9 +674,9 @@ const FacilitiesShowcase = () => {
             </div>
 
             {/* System Status */}
-            <div className="p-4 rounded-2xl backdrop-blur-sm border border-white/10 bg-gradient-to-br from-white/5 to-transparent">
-              <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
-                <Shield className="w-4 h-4 text-green-400" />
+            <div className="p-4 rounded-2xl backdrop-blur-sm border border-gray-200 bg-white/80">
+              <h4 className="font-semibold text-[#030859] mb-3 flex items-center gap-2">
+                <Shield className="w-4 h-4 text-green-500" />
                 System Status
               </h4>
               <div className="space-y-2">
@@ -688,10 +687,10 @@ const FacilitiesShowcase = () => {
                   { label: "Backup", status: "Ready", color: "bg-blue-500" }
                 ].map((system, index) => (
                   <div key={index} className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">{system.label}</span>
+                    <span className="text-gray-600">{system.label}</span>
                     <div className="flex items-center gap-2">
                       <div className={`w-2 h-2 rounded-full ${system.color} animate-pulse`} />
-                      <span className="text-gray-300">{system.status}</span>
+                      <span className="text-gray-800">{system.status}</span>
                     </div>
                   </div>
                 ))}
@@ -709,44 +708,44 @@ const FacilitiesShowcase = () => {
         >
           {/* Background */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-purple-900/20 to-cyan-900/30" />
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#3b82f610_1px,transparent_1px),linear-gradient(to_bottom,#3b82f610_1px,transparent_1px)] bg-[size:60px_60px]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#030859]/20 via-[#5FD4E2]/10 to-[#DCE7C6]/20" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#5FD4E210_1px,transparent_1px),linear-gradient(to_bottom,#5FD4E210_1px,transparent_1px)] bg-[size:60px_60px]" />
           </div>
 
           <div className="relative z-10 grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-3">Book a Facility Tour</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-2xl font-bold text-[#030859] mb-3">Book a Facility Tour</h3>
+              <p className="text-gray-600 mb-6">
                 Experience our world-class facilities firsthand. Schedule a personalized tour with our facility experts.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold flex items-center justify-center gap-2"
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#030859] to-[#5FD4E2] text-white font-semibold flex items-center justify-center gap-2 shadow-lg"
                 >
                   <CalendarIcon className="w-5 h-5" />
                   Schedule Tour
                 </motion.button>
-                <button className="px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold border border-white/20 hover:border-white/40 transition-colors">
+                <button className="px-6 py-3 rounded-xl bg-white/80 backdrop-blur-sm text-[#030859] font-semibold border border-[#030859]/20 hover:border-[#030859]/40 transition-colors">
                   Virtual Preview
                 </button>
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold text-white mb-3">Facility Support</h3>
+              <h3 className="text-2xl font-bold text-[#030859] mb-3">Facility Support</h3>
               <div className="space-y-3">
                 {[
                   { icon: Phone, label: "24/7 Support", value: "+1 (555) 123-4567" },
                   { icon: Mail, label: "Email", value: "facilities@hsa.com" },
                   { icon: Clock, label: "Operating Hours", value: "5:00 AM - 11:00 PM" }
                 ].map((contact, index) => (
-                  <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                    <contact.icon className="w-5 h-5 text-blue-400" />
+                  <div key={index} className="flex items-center gap-3 p-3 rounded-xl bg-white/80">
+                    <contact.icon className="w-5 h-5 text-[#5FD4E2]" />
                     <div>
-                      <div className="text-sm text-gray-400">{contact.label}</div>
-                      <div className="font-medium text-white">{contact.value}</div>
+                      <div className="text-sm text-gray-600">{contact.label}</div>
+                      <div className="font-medium text-[#030859]">{contact.value}</div>
                     </div>
                   </div>
                 ))}
@@ -761,16 +760,16 @@ const FacilitiesShowcase = () => {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 3, repeat: Infinity }}
-          className="p-4 rounded-2xl backdrop-blur-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent"
+          className="p-4 rounded-2xl backdrop-blur-xl border border-[#5FD4E2]/30 bg-white/80"
         >
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-3 h-3 bg-cyan-500 rounded-full animate-ping absolute" />
-              <div className="w-3 h-3 bg-cyan-500 rounded-full relative" />
+              <div className="w-3 h-3 bg-[#5FD4E2] rounded-full animate-ping absolute" />
+              <div className="w-3 h-3 bg-[#5FD4E2] rounded-full relative" />
             </div>
             <div>
-              <div className="text-sm font-medium text-white">Real-time Monitoring</div>
-              <div className="text-xs text-gray-400">All Systems Active</div>
+              <div className="text-sm font-medium text-[#030859]">Real-time Monitoring</div>
+              <div className="text-xs text-gray-600">All Systems Active</div>
             </div>
           </div>
         </motion.div>
@@ -781,15 +780,15 @@ const FacilitiesShowcase = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsModalOpen(true)}
-          className="p-4 rounded-2xl backdrop-blur-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent group"
+          className="p-4 rounded-2xl backdrop-blur-xl border border-[#5FD4E2]/30 bg-white/80 group"
         >
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-[#030859] to-[#5FD4E2]">
               <Eye className="w-5 h-5 text-white" />
             </div>
             <div className="text-left">
-              <div className="text-sm font-medium text-white">Live View</div>
-              <div className="text-xs text-gray-400">Security Cameras</div>
+              <div className="text-sm font-medium text-[#030859]">Live View</div>
+              <div className="text-xs text-gray-600">Security Cameras</div>
             </div>
           </div>
         </motion.button>
@@ -802,17 +801,17 @@ const FacilitiesShowcase = () => {
         }
         
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(3, 8, 89, 0.05);
           border-radius: 10px;
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(59, 130, 246, 0.5);
+          background: rgba(95, 212, 226, 0.5);
           border-radius: 10px;
         }
         
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(59, 130, 246, 0.7);
+          background: rgba(95, 212, 226, 0.7);
         }
       `}</style>
     </div>

@@ -345,7 +345,7 @@ const Login = () => {
     <>
       <CustomScrollbarStyles />
       
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      <div className="relative min-h-[80px] flex items-center justify-center overflow-hidden bg-black">
         {/* Advanced Background Effects */}
         <div className="fixed inset-0">
           <Particles 

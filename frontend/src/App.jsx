@@ -65,6 +65,11 @@ import ResetPassword from "./pages/ResetPassword";
 
 // Protected pages (login के बाद ही accessible)
 import Dashboard from "./pages/Dashboard";
+import Coaches from './pages/Coaches';
+import Schedule from './pages/Schedule';
+import Training from './pages/Training';
+import Facilities from './pages/Facilities';
+import Achievements from './pages/Achievement';
 
 // Public info pages - अगर ये files नहीं हैं तो temporary बना लें
 const About = () => (
@@ -76,14 +81,7 @@ const About = () => (
   </div>
 );
 
-const Facilities = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Our Facilities</h1>
-      <p className="text-gray-300">Facilities page content coming soon...</p>
-    </div>
-  </div>
-);
+
 
 const Contact = () => (
   <div className="min-h-screen bg-black text-white p-8">
@@ -113,41 +111,13 @@ const Profile = () => (
   </div>
 );
 
-const Training = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Training Programs</h1>
-      <p className="text-gray-300">Training page content coming soon...</p>
-    </div>
-  </div>
-);
 
-const Coaches = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Our Coaches</h1>
-      <p className="text-gray-300">Coaches page content coming soon...</p>
-    </div>
-  </div>
-);
 
-const Schedule = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Training Schedule</h1>
-      <p className="text-gray-300">Schedule page content coming soon...</p>
-    </div>
-  </div>
-);
 
-const Achievements = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Achievements</h1>
-      <p className="text-gray-300">Achievements page content coming soon...</p>
-    </div>
-  </div>
-);
+
+
+
+
 
 function App() {
   const dispatch = useDispatch();
@@ -157,13 +127,13 @@ function App() {
     dispatch(checkAuth());
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#DCE7C6]"></div>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center bg-black">
+  //       <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#DCE7C6]"></div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <Routes>

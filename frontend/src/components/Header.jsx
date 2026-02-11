@@ -732,14 +732,14 @@ function Header() {
   // Navigation items with public/private flags
   const navItems = [
     { path: "/", label: "Home", icon: Home, public: true },
-    { path: "/dashboard", label: "Dashboard", icon: Target, public: false },
+    // { path: "/dashboard", label: "Dashboard", icon: Target, public: false },
     { path: "/training", label: "Training", icon: Trophy, public: false },
     { path: "/coaches", label: "Coaches", icon: Users, public: true },
     { path: "/schedule", label: "Schedule", icon: Calendar, public: false },
     { path: "/achievements", label: "Achievements", icon: Award, public: false },
     { path: "/facilities", label: "Facilities", icon: Building, public: true },
-    { path: "/about", label: "About", icon: Info, public: true },
-    { path: "/contact", label: "Contact", icon: Phone, public: true },
+    // { path: "/about", label: "About", icon: Info, public: true },
+    // { path: "/contact", label: "Contact", icon: Phone, public: true },
   ];
 
   // Fix for hydration and mount state
@@ -860,7 +860,7 @@ function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1.5">
             {filteredNavItems.map((item, index) => (
               <motion.div
                 key={item.path}
