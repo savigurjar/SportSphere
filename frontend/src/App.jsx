@@ -70,6 +70,7 @@ import Schedule from './pages/Schedule';
 import Training from './pages/Training';
 import Facilities from './pages/Facilities';
 import Achievements from './pages/Achievement';
+import AdminPanel from './pages/Admin/AdminPanel';
 
 // Public info pages - अगर ये files नहीं हैं तो temporary बना लें
 const About = () => (
@@ -261,14 +262,10 @@ function App() {
       
       <Route path="/admin" element={
         isAuthenticated ? 
-        <AppLayout>
-          <div className="min-h-screen bg-black text-white p-8">
-            <div className="max-w-7xl mx-auto">
-              <h1 className="text-4xl font-bold mb-6">Admin Panel</h1>
-              <p className="text-gray-300">Admin panel content coming soon...</p>
-            </div>
-          </div>
-        </AppLayout> : 
+        // <AppLayout>
+         <AdminPanel/>
+        // </AppLayout> 
+        : 
         <Navigate to="/login" />
       } />
     </Routes>
