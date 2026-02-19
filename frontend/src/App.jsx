@@ -71,6 +71,8 @@ import Training from './pages/Training';
 import Facilities from './pages/Facilities';
 import Achievements from './pages/Achievement';
 import AdminPanel from './pages/Admin/AdminPanel';
+import Settings from './pages/Settings';
+import Profile from './pages/Profile';
 
 // Public info pages - अगर ये files नहीं हैं तो temporary बना लें
 const About = () => (
@@ -103,14 +105,7 @@ const FAQ = () => (
 );
 
 // Protected pages - temporary placeholders
-const Profile = () => (
-  <div className="min-h-screen bg-black text-white p-8">
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">My Profile</h1>
-      <p className="text-gray-300">Profile page content coming soon...</p>
-    </div>
-  </div>
-);
+
 
 
 
@@ -250,12 +245,7 @@ function App() {
       <Route path="/settings" element={
         isAuthenticated ? 
         <AppLayout>
-          <div className="min-h-screen bg-black text-white p-8">
-            <div className="max-w-7xl mx-auto">
-              <h1 className="text-4xl font-bold mb-6">Settings</h1>
-              <p className="text-gray-300">Settings page content coming soon...</p>
-            </div>
-          </div>
+         <Settings/>
         </AppLayout> : 
         <Navigate to="/login" />
       } />

@@ -317,5 +317,77 @@ const deleteProfile = async (req, res) => {
   }
 };
 
+// authController.js – add this function
 
-module.exports = { signupUser, loginUser, getProfile ,logoutUser, changePassword, forgotPassword, resetPassword, getAllUsers, adminRegister, deleteProfile };
+const updateProfile = async (req, res) => {
+  try {
+    const userId = req.result._id; // from auth middleware
+
+    // Allowed fields that can be updated (based on user schema)
+    const allowedFields = [
+      "firstName",
+      "lastName",
+      "phoneNumber",
+      "gender",
+      "dateOfBirth",
+      "address",
+      "profileImage"
+    ];
+
+    const updates = {};
+
+    // Build update object only with fields present in request body
+    for (const field of allowedFields) {
+      if (req.body[field] !== undefined) {
+        // If field is address, ensure it's an object (could be sent as JSON string)
+        if (field === "address" && typeof req.body.address === "string") {
+          try {
+            updates.address = JSON.parse(req.body.address);
+          } catch {
+            updates.address = req.body.address;
+          }
+        } else {
+          updates[field] = req.body[field];
+        }
+      }
+    }
+
+    // Update user and return new document (excluding password & reset tokens)
+    const user = await User.findByIdAndUpdate(
+      userId,
+      { $set: updates },
+      {
+        new: true,
+        runValidators: true,
+        select: "-password -resetPasswordToken -resetPasswordExpire"
+      }
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.status(200).json({
+      success: true,
+      user,
+      message: "Profile updated successfully"
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};
+
+module.exports = {
+  signupUser,
+  loginUser,
+  getProfile,
+  logoutUser,
+  changePassword,
+  forgotPassword,
+  resetPassword,
+  getAllUsers,
+  adminRegister,
+  deleteProfile,
+  updateProfile   // add this export
+};
+
