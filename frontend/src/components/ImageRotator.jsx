@@ -6,23 +6,23 @@ const ImageRotator = () => {
   // Array of 5 images with captions
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1549060279-7e168fce7090?q=80&w=2070&auto=format&fit=crop",
+      url: "./images/first.JPG",
       caption: "State-of-the-art training facilities"
     },
     {
-      url: "https://images.unsplash.com/photo-1519311965067-36d3e5f18d8a?q=80&w=2071&auto=format&fit=crop",
+      url: "./images/second.JPG",
       caption: "Olympic-sized swimming pool"
     },
     {
-      url: "https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?q=80&w=2070&auto=format&fit=crop",
+      url: "./images/third.jpg",
       caption: "Professional basketball courts"
     },
     {
-      url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
+      url: "./images/fourth.jpg",
       caption: "World-class running track"
     },
     {
-      url: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop",
+      url: "./images/fifth.JPG",
       caption: "Professional tennis facilities"
     }
   ];
