@@ -837,7 +837,7 @@ function Header() {
                 alt="HSA Logo" 
                 className="w-12 h-12 object-contain"
               />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full animate-pulse" />
+              {/* <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full animate-pulse" /> */}
             </div>
             
             <div className="flex flex-col">

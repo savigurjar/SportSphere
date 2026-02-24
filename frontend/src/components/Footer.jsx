@@ -60,7 +60,7 @@ const Footer = () => {
                   alt="HSA Logo"
                   className="w-12 h-12 object-contain"
                 />
-                <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-blue-600 rounded-full animate-pulse" />
+                {/* <div className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-blue-600 rounded-full animate-pulse" /> */}
               </div>
               <div>
                 <h2 className="text-lg font-bold text-white">HSA</h2>
