@@ -424,7 +424,7 @@ const Signup = () => {
                     <div className="w-12 h-12 mt-10 bg-gradient-to-br from-blue-700 to-blue-900 rounded-xl flex items-center justify-center">
                       <Trophy className="w-6 h-6 text-[#DCE7C6]" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full animate-ping" />
+                    {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-600 rounded-full animate-ping" /> */}
                   </div>
                   <h1 className="text-5xl mt-20 font-bold bg-gradient-to-r from-blue-400 via-[#DCE7C6] to-blue-300 bg-clip-text text-transparent">
                     Himalayan Sports Academy
