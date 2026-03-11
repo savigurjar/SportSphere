@@ -18,6 +18,12 @@ app.use(cookieParser());
 
 app.use("/user", authRouter);
 
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus:true,
+        error:false
+    })
+})
 
 const initializeConnection = async () => {
     try {
