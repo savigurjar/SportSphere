@@ -510,3 +510,5 @@ const Admin = () => {
 };
 
 export default Admin;
+
+// Admin panel will be added
